@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>找回失落的母語：台語家教的崛起與挑戰</title>
+    <!-- 引入Google字型：粉筆風(Gochi Hand)與黑體 -->
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 第一區塊：黑板風台語拼音互動測驗 -->
+    <section id="quiz-section" class="blackboard-container">
+        <div class="wood-frame">
+            <div class="blackboard">
+                <h1 class="chalk-title">台語聽力隨堂考</h1>
+                <p class="chalk-subtitle">點擊喇叭播放發音，選出正確的台語羅馬拼音</p>
+                
+                <!-- 測驗題區塊 -->
+                <div id="quiz-container">
+                    <!-- 題目將由 JavaScript 動態生成 -->
+                </div>
+
+                <div id="quiz-result" class="hidden">
+                    <h2 class="chalk-title">測驗完成！</h2>
+                    <p class="chalk-subtitle" id="score-text"></p>
+                    <div class="scroll-prompt">
+                        <p>請往下滑動，進入深度報導</p>
+                        <div class="arrow">↓</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--
+            提醒：以下 audio 標籤目前沒有對應的真實 mp3 檔案，
+            所以播放鍵按下去會沒有聲音。
+            目前 script.js 已先改用瀏覽器內建的 Web Speech API 暫代發音
+            (純文字轉語音，不是真正的台語發音，僅供demo測試)。
+            等你錄好真人台語語音後，把檔案存成下面對應的路徑與檔名，
+            並依照 script.js 裡的註解切換回 <audio> 播放版本即可。
+        -->
+        <audio id="audio-1" src="audio/tsa-khi.mp3"></audio>
+        <audio id="audio-2" src="audio/e-tang.mp3"></audio>
+        <audio id="audio-3" src="audio/sui.mp3"></audio>
+    </section>
+
+    <!-- 第二區塊：滾動式報導 (Scrollytelling) -->
+    <section id="report-section">
+        <div class="scrolly-container">
+            <!--
+                背景圖片提醒：
+                原始參考報導（政大大學報 unews）裡的照片與圖表是記者
+                親自拍攝、製作的原創內容，受著作權保護，不能直接盜連
+                該報導網站上的圖片網址使用。
+                以下暫時沿用 Unsplash 免費圖庫的素材作為示意圖，
+                若想要更貼近報導情境，建議改用自己拍攝的照片，
+                或在 Unsplash / Pexels 等免費圖庫中搜尋「台語」「本土語言課」
+                「祖孫」「課堂」等情境圖片替換。
+            -->
+            <div class="sticky-bg">
+                <div class="bg-image active" id="bg-1" style="background-image: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1920&q=80');"></div>
+                <div class="bg-image" id="bg-2" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1920&q=80');"></div>
+                <div class="bg-image" id="bg-3" style="background-image: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1920&q=80');"></div>
+                <div class="bg-image" id="bg-4" style="background-image: url('https://images.unsplash.com/photo-1499887142886-791eca5918cd?auto=format&fit=crop&w=1920&q=80');"></div>
+            </div>
+            
+            <!-- 滾動文本層 -->
+            <div class="scroll-text">
+                <div class="step" data-index="1">
+                    <div class="text-box">
+                        <h2>一、數字背後的世代斷層</h2>
+                        <p>政府的人口住宅普查資料揭露了一個尷尬的現實：把台語當主要語言的民眾只剩三成左右，而在6到14歲的孩子裡，這個比例更是不到一成，相較於65歲以上長者超過六成的使用率，兩端的差距十分懸殊。更值得注意的是，不少以華語為主要語言的人，童年時最早學會的其實是台語，顯示母語在成長過程中正被悄悄替換掉。學校體制內，本土語課程從國小推行到中學足足花了二十年，課堂時間的稀少，也讓「台語家教」這種體制外的補位角色逐漸浮現。</p>
+                    </div>
+                </div>
+
+                <div class="step" data-index="2">
+                    <div class="text-box">
+                        <h2>二、家教市場的真實樣貌：競賽與考照當道</h2>
+                        <p>外界容易誤以為找台語家教是為了找回家庭情感連結，但實際上，市場裡超過半數的需求來自語文競賽指導，許多家長希望孩子在朗讀、演說比賽中表現亮眼，作為升學歷程的加分項目。另一塊穩定成長的客群則是成人考照族群，隨著本土語言課程成為國高中必修，越來越多教師選擇加考一張台語教學證照，為未來的職涯多開一條路。真正單純出於文化傳承而學習的人，雖然只占少數，卻往往是學習最穩定、進步最明顯的一群。</p>
+                    </div>
+                </div>
+
+                <div class="step" data-index="3">
+                    <div class="text-box">
+                        <h2>三、沒有教科書的教學現場</h2>
+                        <p>市面上缺乏統一的台語教材，家教老師多半得自己編寫講義，依照學生程度彈性調整教學內容與台語使用比例。台灣各地腔調差異也讓教學充滿挑戰——語言本身沒有單一標準答案，但教學現場為了方便推廣，又不得不訂出某種教學規範，這種兩難被業內人士形容為「必要之惡」。也有學者認為，建立一套相對標準的教學語言，反而有助於保護腔調的多元性，讓不同口音的使用者都能在這套架構下找到立足之地。</p>
+                    </div>
+                </div>
+
+                <div class="step" data-index="4">
+                    <div class="text-box">
+                        <h2>四、誰來接住消失中的語言</h2>
+                        <p>當體制內的本土語教育始終追不上語言流失的速度，民間力量正試著補上這個缺口。有家長分享，自己選擇持續和孩子說台語，是因為擔心一旦中斷，連帶消失的還有家庭情感與傳統習俗的記憶。也有學習者形容，學台語是為了找回與已經離世的長輩之間，那段曾經共享卻逐漸模糊的連結。台語家教或許無法單獨扭轉語言流失的大趨勢，但它讓更多人重新意識到：母語的延續，從來不是理所當然的事。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
