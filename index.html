@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>找回失落的母語：台語家教的崛起與挑戰</title>
+    <!-- 引入Google字型：粉筆風(Gochi Hand)與黑體 -->
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 第一區塊：黑板風台語拼音互動測驗 -->
+    <section id="quiz-section" class="blackboard-container">
+        <div class="wood-frame">
+            <div class="blackboard">
+                <h1 class="chalk-title">台語聽力隨堂考</h1>
+                <p class="chalk-subtitle">點擊喇叭播放發音，選出正確的台語羅馬拼音</p>
+                
+                <!-- 測驗題區塊 -->
+                <div id="quiz-container">
+                    <!-- 題目將由 JavaScript 動態生成 -->
+                </div>
+
+                <div id="quiz-result" class="hidden">
+                    <h2 class="chalk-title">測驗完成！</h2>
+                    <p class="chalk-subtitle" id="score-text"></p>
+                    <div class="scroll-prompt">
+                        <p>請往下滑動，進入深度報導</p>
+                        <div class="arrow">↓</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 音檔預留區 (請替換為您真實的mp3檔案路徑) -->
+        <audio id="audio-1" src="audio/tsa-khi.mp3"></audio>
+        <audio id="audio-2" src="audio/e-tang.mp3"></audio>
+        <audio id="audio-3" src="audio/sui.mp3"></audio>
+    </section>
+
+    <!-- 第二區塊：滾動式報導 (Scrollytelling) -->
+    <section id="report-section">
+        <div class="scrolly-container">
+            <!-- 背景圖片層 -->
+            <div class="sticky-bg">
+                <div class="bg-image active" id="bg-1" style="background-image: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1920&q=80');"></div>
+                <div class="bg-image" id="bg-2" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1920&q=80');"></div>
+                <div class="bg-image" id="bg-3" style="background-image: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1920&q=80');"></div>
+                <div class="bg-image" id="bg-4" style="background-image: url('https://images.unsplash.com/photo-1499887142886-791eca5918cd?auto=format&fit=crop&w=1920&q=80');"></div>
+            </div>
+            
+            <!-- 滾動文本層 -->
+            <div class="scroll-text">
+                <div class="step" data-index="1">
+                    <div class="text-box">
+                        <h2>一、家庭裡的語言斷層</h2>
+                        <p>「阿公阿嬤講的話，囡仔聽攏無。」隨著華語成為主流，許多年輕父母驚覺孩子已完全失去母語能力。為了填補學校每週僅一節鄉土語言課的不足，「台語家教」這個新興行業應運而生，成為家長挽救家庭溝通橋樑的解方。</p>
+                    </div>
+                </div>
+
+                <div class="step" data-index="2">
+                    <div class="text-box">
+                        <h2>二、不只是背單字：客製化的陪伴</h2>
+                        <p>與傳統學科家教不同，台語家教不追求考試高分，而是透過繪本共讀、角色扮演、甚至是帶著孩子去菜市場買菜，在真實情境中創造台語語境。讓孩子在生活中自然而然脫口而出「早起（tsá-khí）」、「可以（ē-tàng）」與「美麗（suí）」。</p>
+                    </div>
+                </div>
+
+                <div class="step" data-index="3">
+                    <div class="text-box">
+                        <h2>三、自編教材與腔調的挑戰</h2>
+                        <p>體制外的台語家教面臨著資源匱乏的困境。市面上缺乏系統性的幼兒台語教材，老師們往往需要熬夜自編講義。此外，台灣各地腔調互異（如偏泉腔、偏漳腔），如何與家長的期待取得共識，考驗著教學者的智慧與耐心。</p>
+                    </div>
+                </div>
+
+                <div class="step" data-index="4">
+                    <div class="text-box">
+                        <h2>四、找回自己的根</h2>
+                        <p>「學母語，是為了知道我們從哪裡來。」儘管大環境的台語流失速度依然驚人，但這群台語家教正以體制外的力量，一磚一瓦地重建母語環境。當孩子能用流利的台語向長輩問候時，語言便成功跨越了世代的鴻溝，將台灣人的文化記憶傳承下去。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
